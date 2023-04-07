@@ -5,14 +5,13 @@ const options = {
 		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
 	}
 };
+
 const getWeather = (city)=>{
     cityname.innerHTML = city
     fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + city, options)
     .then(response => response.json())
     .then(response => {
-        
         console.log(response)
-        
         temp.innerHTML = response.temp
         temp2.innerHTML = response.temp
         feels_like.innerHTML = response.feels_like
@@ -21,11 +20,15 @@ const getWeather = (city)=>{
         max_temp.innerHTML = response.max_temp
         min_temp.innerHTML = response.min_temp
         
-        // Convert sunrise timestamp to human-readable time
+        // Convert sunrise timestamp to 24-hour format
         const sunriseTimestamp = response.sunrise;
         const sunriseDate = new Date(sunriseTimestamp * 1000);
-        const sunriseTime = sunriseDate.toLocaleTimeString();
+        const sunriseHours = sunriseDate.getHours().toString().padStart(2, '0');
+        const sunriseMinutes = sunriseDate.getMinutes().toString().padStart(2, '0');
+        const sunriseSeconds = sunriseDate.getSeconds().toString().padStart(2, '0');
+        const sunriseTime = `${sunriseHours}:${sunriseMinutes}:${sunriseSeconds}`;
         sunrise.innerHTML = sunriseTime;
+        
         wind_degrees.innerHTML = response.wind_degrees
         wind_speed.innerHTML = response.wind_speed
         wind_speed2.innerHTML = response.wind_speed
@@ -33,6 +36,7 @@ const getWeather = (city)=>{
     })
     .catch(err => console.error(err));
 }
+
 submit.addEventListener("click", (e)=>{
     e.preventDefault()
     getWeather(city.value)
