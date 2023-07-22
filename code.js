@@ -20,7 +20,6 @@ const getWeather = (city)=>{
         max_temp.innerHTML = response.max_temp
         min_temp.innerHTML = response.min_temp
         
-        // Convert sunrise timestamp to 24-hour format
         const sunriseTimestamp = response.sunrise;
         const sunriseDate = new Date(sunriseTimestamp * 1000);
         const sunriseHours = sunriseDate.getHours().toString().padStart(2, '0');
