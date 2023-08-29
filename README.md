@@ -4,5 +4,5 @@ which uses HTML, JAVASCRIPT, and API to give the weather information.
 
 This is the Image of the Weather Website 
 
-![weather](https://github.com/Muthu-kesavan/weather-website/assets/73815261/ba36c587-b05e-479f-b70c-5a91957d9440)
+![weather](https://github.com/Muthu-kesavan/weather-website/assets/73815261/336de713-a4b5-419d-a873-53fefa967ac2)
 
